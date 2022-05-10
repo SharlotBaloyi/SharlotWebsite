@@ -53,6 +53,8 @@ namespace WebApplication1.Controllers
             dbCustomer.customerAddress=request.customerAddress;
             dbCustomer.emailAddress=request.emailAddress;
             dbCustomer.cellphoneNo=request.cellphoneNo;
+            dbCustomer.userName=request.userName;
+            dbCustomer.password=request.password;
             dbCustomer.creditCardInfo=request.creditCardInfo;
             dbCustomer.shippingInfo=request.shippingInfo;
 
