@@ -7,11 +7,10 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import { CartComponent } from './cart/cart.component';
-import { NavigatorComponent } from './navigator/navigator.component';
 
 const routes: Routes = [
 
-  { path: '', pathMatch: 'full', redirectTo: 'login'},
+  { path: '', pathMatch: 'full', redirectTo: 'products'},
 
   { path: 'login', component: LoginComponent},
 
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'product', component: ProductDetailsComponent},
   { path: 'checkout', component: CheckOutComponent},
   { path: 'cart', component: CartComponent},
-  { path:'navigator',component:NavigatorComponent}
 
 
 ];

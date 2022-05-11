@@ -1,21 +1,58 @@
 
-<mat-toolbar>
-    
-    <div>
-        <a mat-button routerLink="products" routerLinkActive="active">Products</a>
-        
-    </div>
-    <div><a class="button fancy-button" routerLink="cart">Cart</a>
-        <a routerLink="checkout" class ="material-icons">Checkout</a></div>
-        <a routerLink="navigator" class ="material-icons">navigate</a>
-    <span class ="nav-tool-items">
-        <a mat-button routerLink="login" routerLinkActive="active">Login</a>
-        <a mat-button mat-raised-button  routerLink="register" routerLinkActive="active">Register</a>
-       
-    </span>
-</mat-toolbar>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product</title>
+
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
 
 
+</head>
 
-<router-outlet></router-outlet>
+<body>
+
+    <header>
+        <div class="header-1">
+
+            <a href="" class="logo"> Online Shopping</a>
+
+            <form action="" class="search-box-container">
+                <input type="search" id="search-box" placeholder="search here...">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+        </div>
+
+
+        <div class="header-2">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+
+                <a routerLink="/home">Home</a>
+                <a routerLink="/products">Product</a>
+                <a routerLink="/login">Login</a>
+                <a routerLink="register">Register</a>
+            </nav>
+            <div class="icons">
+                <a routerLink="/cart" class="fas fa-shopping-cart"></a>
+
+
+            </div>
+        </div>
+    </header>
+    <router-outlet></router-outlet>
+
+    <!-- custom js link  -->
+    <script></script>
+</body>
+
+</html>
+

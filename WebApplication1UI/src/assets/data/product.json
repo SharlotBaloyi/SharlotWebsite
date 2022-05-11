@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": "001",
+      "name": "Samsung Notebook 9 Spin, Pure Black (NP940X3L-K01US)",
+      "price": 5999,
+      "image": "https://www.amazon.com/images/I/41SrB27zZ6L._AC_.jpg",
+      "description": "Intel Core i7 processor 8GB Memory, 256GB SSD Storage 360 degree rotating QHD+ Touch Screen Display with Real time HDR ›See more product details."
+    },
+    {
+      "id": "002",
+      "name": "Dell Precision 3510 15 IPS Laptop Core i7-6820HQ 256GB AMD,16GB RAM",
+      "price": 3999,
+      "image": "https://cdn.shopify.com/s/files/1/0192/2088/9664/products/dell-computers-tablets-networking-laptops-netbooks-pc-laptops-netbooks-dell-precision-3510-15-ips-laptop-core-i7-6820hq-256gb-amd-16gb-ram-13241982910535_540x.jpg?v=1588646858",
+      "description": "Fast tested and working used laptop (photos are from the listed unit). Sold on the VAT margin scheme (VAT cannot be claimed back). Has a 3-month RTB warranty with us only. The screen works, grade B (noticeable surface marks). Inside looks okay (e.g. some visible wears on the palmrest/ bezel). The outside casing has very noticeable wears/marks (heavy scratch/marks on the lid; edges/side/base, etc). The battery holds a high 95% capacity (checked by HWMonitor, estimation only). No internal DVD drive. Comes with charger, in repacked box."
+    },
+    {
+      "id": "003",
+      "name": "Asus VivoBook S14 S410UA-EB606T” 1920X1080 QUAD CORE RYZEN 5 3550H 8GB 512GB SSD GTX 1650 4GB NH.Q8LEX.19A",
+      "price": 4999,
+      "image": "https://dlcdnwebimgs.asus.com/gain/4ff35b7c-5471-431b-bd97-274fc97c442a/w800",
+      "description": "Asus Aspire 7 A715 15.6” 1920x1080 QUAD CORE Ryzen 5 3550H 8GB 512GB SSD GTX 1650 4GB NH.Q8LEX.19A"
+    }
+  ]
+}
