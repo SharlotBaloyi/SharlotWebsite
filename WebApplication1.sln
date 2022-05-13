@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebAppli
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApplication1UI", "WebApplication1UI\", "{CC973E18-EDFB-4E0C-9028-E2D43770FC7D}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_53108"
 		Debug.AspNetCompiler.PhysicalPath = "WebApplication1UI\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53108\"
@@ -26,6 +26,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApplication1UI", "WebApp
 		SlnRelativePath = "WebApplication1UI\"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{EBE9D548-99A1-49F8-BF7F-7DA7D4F66FCC}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\E-Commerce Online Shopping Documentation  new.docx = ..\..\..\Downloads\E-Commerce Online Shopping Documentation  new.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,7 +42,6 @@ Global
 		{8AAB2C98-F452-4CFD-B49E-248477178449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AAB2C98-F452-4CFD-B49E-248477178449}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC973E18-EDFB-4E0C-9028-E2D43770FC7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC973E18-EDFB-4E0C-9028-E2D43770FC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC973E18-EDFB-4E0C-9028-E2D43770FC7D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC973E18-EDFB-4E0C-9028-E2D43770FC7D}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Data.Entity;
 using WebApplication1.Data;
 using WebApplication1.Model;
 
@@ -20,7 +19,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Customer>>> Get()
         {
-            return Ok(await content.Users.FindAsync());
+            return Ok(await content.Users.ToListAsync());
         }
         [HttpGet("id")]
         public async Task<ActionResult<Customer>> Get(int id)

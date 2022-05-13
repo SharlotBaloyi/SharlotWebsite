@@ -1,48 +1,77 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
+import { AuthenticationService } from '../_service/authentication.service';
+import { UserService } from '../user.service';
 
-@Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-})
+@Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
+    loginForm: FormGroup;
+    loading = false;
+    submitted = false;
+    returnUrl: string;
+    error: string;
+    success: string;
 
-  loginForm: FormGroup = new FormGroup({
-    userName: new FormControl(''),
-    passWord: new FormControl(''),
-  });
 
-  submitted = false;
+  authenticationService: any;
 
-  constructor(public fb: FormBuilder, public router: Router) { }
 
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      userName: ['', [Validators.required, Validators.email]],
-      passWord: ['', [Validators.required, Validators.pattern(
-        '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$'
-      )]]
-    });
-  }
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.valid) {
-      localStorage.setItem("userName", this.loginForm.get('userName')?.value);
-      localStorage.setItem("passWord", this.loginForm.get('passWord')?.value);
-      this.clear();
-      this.loginForm.disable();
-      this.router.navigate(['registration']);
+    constructor(
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private authentication: AuthenticationService,
+        private  user:UserService,
+    ) {
+        // redirect to home if already logged in
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
     }
-  }
 
-  clear() {
-    this.loginForm.patchValue({
-      userName: '',
-      passWord: ''
-    });
-  }
+    ngOnInit() {
+        this.loginForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
 
+        // get return url from route parameters or default to '/'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+
+        // show success message on registration
+        if (this.route.snapshot.queryParams['registered']) {
+            this.success = 'Registration successful';
+        }
+    }
+
+    // convenience getter for easy access to form fields
+    get f() { return this.loginForm.controls; }
+
+    onSubmit() {
+        this.submitted = true;
+
+        // reset alerts on submit
+        this.error = null;
+        this.success = null;
+
+        // stop here if form is invalid
+        if (this.loginForm.invalid) {
+            return;
+        }
+
+        this.loading = true;
+        this.authentication.login(this.f.username.value, this.f.password.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    this.error = error;
+                    this.loading = false;
+                });
+    }
 }

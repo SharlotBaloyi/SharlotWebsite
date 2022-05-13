@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.Model;
 
@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public async Task<ActionResult<List<OrderDetail>>> Get()
         {
-            return Ok(await content.OrderDetails.FindAsync());
+            return Ok(await content.OrderDetails.ToListAsync());
         }
         [HttpGet("id")]
         public async Task<ActionResult<OrderDetail>> Get(int id)

@@ -1,0 +1,16 @@
+<div class="poduct-card">
+  <div class="row mt-5">
+    <div class="col" *ngFor="let product of products , let i =index">
+      <div class="card">
+        <img [src]="product?.imagefilename" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ product?.productName }}</h5>
+          <h5 class="card-title">{{ product?.description}}</h5>
+          <h5 class="card-title">{{ product?.price }}</h5>
+          <h5 class="card-title">{{ product?.imageFileName }}</h5>
+          <a href="#" class="btn btn-primary">Add To Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
