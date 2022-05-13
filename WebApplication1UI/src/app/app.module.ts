@@ -8,7 +8,6 @@ import { MenuComponent } from './menu/menu.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CheckOutComponent } from './check-out/check-out.component';
 import { LoginComponent } from './login/login.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -25,8 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     ProductListComponent,
     CartComponent,
     ProductDetailsComponent,
-    CheckOutComponent,
     LoginComponent
+
+
     ],
   imports: [
     BrowserModule,
