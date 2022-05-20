@@ -1,39 +1,57 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { CartService } from '../_service/cart.service';
 import { ProductService } from '../_service/product.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  public cartItems: any;
-  public totalAmmount: any;
+  items: any[] = [];
+  cartItems: any = [];
+  totalAmount: number;
+  products: any;
 
-  constructor(private productservice: ProductService) { }
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.productservice.getProducts().subscribe((data: any) =>{
-      this.cartItems=data;
-
-    });
+    // this.productservice.getProducts().subscribe((data: any) =>{
+    //   this.cartItems=data;
+    this.items = this.cartService.getCartItems();
+    if (this.items) this.getTotal(this.items);
   }
-// Remove item from cart list
-removeItemFromCart(productId: any) {
-   this.cartItems.map((item: { id: any; }, index: any) => {
-    if (item.id === productId) {
-      this.cartItems.splice(index, 1);
+
+  emptryCart() {
+    this.cartItems.length = 0;
+    this.products.next(this.cartItems);
+  }
+
+  onDelete(i: number) {
+    this.cartService.removeFromCart(i);
+    this.items = this.cartService.getCartItems();
+    this.getTotal(this.items);
+  }
+
+  validateInput(event: any, i: number) {
+    const quantity = +event.target.value;
+    if (quantity < 1) {
+      event.target.value = this.items[i].quantity;
+      return;
     }
-  });
+  }
 
-  this.productservice.setProducts(this.cartItems);
+  // private UpdateQuantity(quantity:number,i:number){
+  //   this.items[i].quantity = quantity;
+  //   this.getTotal(this.items);
+  // }
 
-   this.productservice.removeProductFromCart(productId);
+  getTotal(data: any) {
+    //for(const item of data) this.totalAmount += item.price * item.quantity;
+  }
 
-}
-
-emptyCart() {
-  this.productservice.emptryCart();
-}
-
+  updateSubtotal(value: any) {
+    console.log(value);
+  }
 }

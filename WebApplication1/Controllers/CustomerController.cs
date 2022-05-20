@@ -17,12 +17,12 @@ namespace WebApplication1.Controllers
               content = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Customer>>> Get()
+        public async Task<ActionResult<List<Login>>> Get()
         {
             return Ok(await content.Users.ToListAsync());
         }
         [HttpGet("id")]
-        public async Task<ActionResult<Customer>> Get(int id)
+        public async Task<ActionResult<Login>> Get(int id)
         {
             var here = await content.Users.FindAsync(id);
 
@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Customer>>> AddHere(Customer users)
+        public async Task<ActionResult<List<Login>>> AddHere(Login users)
         {
             content.Users.Add(users);
             await content.SaveChangesAsync();
@@ -40,7 +40,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Customer>>> UpdateHere(Customer request)
+        public async Task<ActionResult<List<Login>>> UpdateHere(Login request)
         {
             var dbCustomer = await content.Users.FindAsync(request.customerId);
 
@@ -54,14 +54,13 @@ namespace WebApplication1.Controllers
             dbCustomer.cellphoneNo=request.cellphoneNo;
             dbCustomer.userName=request.userName;
             dbCustomer.password=request.password;
-            dbCustomer.creditCardInfo=request.creditCardInfo;
-            dbCustomer.shippingInfo=request.shippingInfo;
+            
 
             await content.SaveChangesAsync();
             return Ok(await content.Users.ToListAsync());
         }
         [HttpDelete]
-        public async Task<ActionResult<List<Customer>>> Delete(int id)
+        public async Task<ActionResult<List<Login>>> Delete(int id)
         {
             var dbCustomer = await content.Users.FindAsync(id);
 

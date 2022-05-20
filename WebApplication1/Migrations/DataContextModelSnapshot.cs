@@ -21,7 +21,7 @@ namespace WebApplication1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("WebApplication1.Model.Customer", b =>
+            modelBuilder.Entity("WebApplication1.Model.Login", b =>
                 {
                     b.Property<int>("customerId")
                         .ValueGeneratedOnAdd()
@@ -30,10 +30,6 @@ namespace WebApplication1.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("customerId"), 1L, 1);
 
                     b.Property<string>("cellphoneNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("creditCardInfo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -50,10 +46,6 @@ namespace WebApplication1.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("shippingInfo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

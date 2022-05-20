@@ -7,14 +7,22 @@ export class UserService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<any[]>(`${environment.apiUrl}/users`);
+        return this.http.get<any[]>(`${environment.apiUrl}/api/Customer`);
     }
 
     register(user) {
-        return this.http.post(`${environment.apiUrl}/users/register`, user);
+        return this.http.post(`${environment.apiUrl}/api/Customer`, user);
     }
 
     delete(id) {
-        return this.http.delete(`${environment.apiUrl}/users/${id}`);
+        return this.http.delete(`${environment.apiUrl}/api/${id}`);
     }
+
+    login(user) {
+      return this.http.post(`${environment.apiUrl}/api/Customer`, user);
+    }
+
+    deletelogin(id) {
+      return this.http.delete(`${environment.apiUrl}/api/${id}`);
+  }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -20,7 +20,7 @@ export class ProductService {
   }
 
   getProducts(): Observable<any> {
-    return this.http.get(`${environment.apiUrl}/api/Product`);
+    return this.http.get(`${environment.apiUrl}/api/Product`).pipe(map((response: any) =>response));
   }
 
   setProducts(products) {
@@ -54,13 +54,13 @@ export class ProductService {
 
   // Calculate total price on item added to the cart
   getTotalPrice() {
-    let total = 0;
+    let totalAmount = 0;
 
     this.cartItems.map(item => {
-      total += item.price;
+      this.totalAmount += item.price;
     });
 
-    return total
+    return totalAmount
   }
 
 }

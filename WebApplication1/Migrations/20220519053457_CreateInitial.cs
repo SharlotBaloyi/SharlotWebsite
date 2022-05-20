@@ -4,7 +4,7 @@
 
 namespace WebApplication1.Migrations
 {
-    public partial class CreateInitials : Migration
+    public partial class CreateInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,9 +66,7 @@ namespace WebApplication1.Migrations
                     emailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     cellphoneNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     userName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    creditCardInfo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    shippingInfo = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

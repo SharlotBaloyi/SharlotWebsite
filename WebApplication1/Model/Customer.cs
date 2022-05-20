@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Model
 {
-    public class Customer
+    public class Login
     {
          [Key]
         public int customerId { get; set; }
@@ -12,9 +12,9 @@ namespace WebApplication1.Model
         public string cellphoneNo{ get; set; }
         public string userName { get; set; }
         public string password { get; set; }
-        public string creditCardInfo{ get; set; }
-        public string shippingInfo { get; set; }
+        
 
 
     }
+    
 }

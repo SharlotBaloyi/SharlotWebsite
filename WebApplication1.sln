@@ -26,11 +26,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebApplication1UI", "WebApp
 		SlnRelativePath = "WebApplication1UI\"
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{EBE9D548-99A1-49F8-BF7F-7DA7D4F66FCC}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Downloads\E-Commerce Online Shopping Documentation  new.docx = ..\..\..\Downloads\E-Commerce Online Shopping Documentation  new.docx
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

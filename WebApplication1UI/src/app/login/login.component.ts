@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+
 import { AuthenticationService } from '../_service/authentication.service';
-import { UserService } from '../user.service';
+import { UserService } from '../_service/user.service';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
     success: string;
 
 
-  authenticationService: any;
+  // authenticationService: any;
 
 
 
@@ -23,19 +24,19 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authentication: AuthenticationService,
-        private  user:UserService,
+        private authenticationService: AuthenticationService,
+        private  userService:UserService,
     ) {
-        // redirect to home if already logged in
-        // if (this.authenticationService.currentUserValue) {
-        //     this.router.navigate(['/']);
-        // }
+
+        if (this.authenticationService.currentUserValue) {
+            this.router.navigate(['/']);
+        }
     }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
+            username: ['',[ Validators.required]],
+            password: ['', [Validators.required]]
         });
 
         // get return url from route parameters or default to '/'
@@ -63,11 +64,11 @@ export class LoginComponent implements OnInit {
         }
 
         this.loading = true;
-        this.authentication.login(this.f.username.value, this.f.password.value)
+        this.userService.login(this.loginForm.value)
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                    this.router.navigate(['/login'], { queryParams: { registered: true }});
                 },
                 error => {
                     this.error = error;
@@ -75,3 +76,5 @@ export class LoginComponent implements OnInit {
                 });
     }
 }
+
+
