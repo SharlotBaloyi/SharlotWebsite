@@ -5,6 +5,12 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+  getTotalPrice(): number {
+    throw new Error('Method not implemented.');
+  }
+  getProducts() {
+    throw new Error('Method not implemented.');
+  }
 
   private localCart:string='localCart';
   public cartItems = [];
@@ -12,6 +18,7 @@ export class CartService {
   public totalAmount = new Subject<number>();
 
   addToCart(product: any) {
+    product.quantity = 1;
     this.getCartItems();
     this.cartItems.push(product);
     localStorage.setItem(this.localCart, JSON.stringify(this.cartItems));
@@ -44,4 +51,3 @@ export class CartService {
     this.products.next(this.cartItems);
   }
 }
-

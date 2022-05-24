@@ -1,29 +1,30 @@
 <div class="product-card">
   <div class="row mt-5"></div>
-    <div class="col" *ngFor=" let item of items" >
-      <div class="card">
-      <img [src]="item?.imagefilename" class="card-img-top" alt="..." >
-    </div >
-      <div class >{{ item?.productName }}</div><br>
-      <div>{{item?.description }}</div>
-      <div>{{ item?.imageFileName }}</div>
-     <div>{{item?.price | currency:'R'}}</div>
-    <input type ="number" class="quantity" [value]="item?.quantity">
+  <div class="col" *ngFor="let item of items">
+    <div class="card">
+      <img [src]="item?.imagefilename" class="card-img-top" alt="..." />
+    </div>
+    <div class>{{ item?.productName }}</div>
+    <br />
+    <div>{{ item?.description }}</div>
+    <div>{{ item?.imageFileName }}</div>
+    <div>{{ item?.price | currency: "R" }}</div>
+    <br />
+    <input type="number" class="quantity" [(ngModel)]="item.quantity" />
 
     <div>
-      <button type="button" aria-label="Remove Item" (click)="onDelete(item)">Remove</button>
+      <button type="button" aria-label="Remove Item" (click)="onDelete(item)">
+        Remove
+      </button>
     </div>
-    <div class="total">{{item.price * item.quantity | currency:'R'}}</div>
+    <div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div>
+  </div>
 
-    <div class="cart-total">
-    <p>
-      <button type="button" class="bt btn-outline-primary btn-sa"></button>
-    </p>
-
+  <div class="cart-total">
     <p class="text-centre">
       <strong class="d-block">Total:</strong>
-     {{item.totalAmount | currency:'R'}}
+      {{ total | currency: "R" }}
     </p>
   </div>
-    </div>
   <a routerLink="/login" class="btn btn-success">Checked</a>
+</div>

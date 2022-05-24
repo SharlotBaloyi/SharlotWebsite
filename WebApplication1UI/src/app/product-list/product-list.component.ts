@@ -1,3 +1,4 @@
+import { isNgTemplate } from '@angular/compiler';
 import { Component, Input, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../_service/cart.service';
@@ -10,11 +11,9 @@ import { ProductService } from '../_service/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-
-
-  private singleProduct;
-  public isAdded;
-  products: any[];
+products :any[]=[]
+private singleProduct;
+public isAdded;
 
   constructor(
 
@@ -24,11 +23,18 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-     this.productservice.getProducts().subscribe((products: any[])=>{
-        console.log(products);
+    this.productservice.getProducts().subscribe((products: any )=>{
+      console.log(products);
+      this.products=products;
+
+      this.products.forEach((a:any)=>{
+        Object.assign(a,{quantity:1,total:a.price});
+
         this.products= products.map(obj => ({ ...obj, quantity: 0 }));
-      })
-    }
+
+    });
+  })
+}
 
     // this.isAdded = new Array(this.products.length);
     // this.isAdded.fill(false, 0, this.products.length);
@@ -36,12 +42,13 @@ export class ProductListComponent implements OnInit {
 
 
 
-  addToCart(item: any) {
-    this.cartService.addToCart(item);
-    // window.alert('Your product has been added to the cart!');
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+     window.alert('Your product has been added to the cart!');
 
   }
 }
+
 
 
   // Add item in cart on Button click
@@ -70,4 +77,10 @@ export class ProductListComponent implements OnInit {
 //   }
 
 // }
+
+
+
+
+
+
 

@@ -8,12 +8,15 @@ import { map } from 'rxjs';
 
 @Injectable()
 export class MainService{
+  getProducts() {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private http: HttpClient) { }
 
-  getProducts(): Observable<any> {
-    return this.http.get('../assets/data/products.json').pipe(map((response: any) =>response));
-  }
+  // getProducts(): Observable<any> {
+  //   return this.http.get('../assets/data/products.json').pipe(map((response: any) =>response));
+  // }
   // getProducts(): any {
   //   return this.http.get('../assets/data/products.json').map(response => response.json());
   // }

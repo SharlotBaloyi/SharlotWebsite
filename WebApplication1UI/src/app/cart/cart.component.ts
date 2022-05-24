@@ -11,7 +11,7 @@ import { ProductService } from '../_service/product.service';
 export class CartComponent implements OnInit {
   items: any[] = [];
   cartItems: any = [];
-  totalAmount: number;
+  total: number;
   products: any;
 
   constructor(private cartService: CartService) {}
@@ -48,7 +48,10 @@ export class CartComponent implements OnInit {
   // }
 
   getTotal(data: any) {
-    //for(const item of data) this.totalAmount += item.price * item.quantity;
+ let totalA=0;
+    for(const item of data)
+     totalA  += item.price * item.quantity;
+     this.total = totalA;
   }
 
   updateSubtotal(value: any) {
