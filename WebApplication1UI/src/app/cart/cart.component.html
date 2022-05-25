@@ -1,30 +1,44 @@
+<section class="vh-50,vb-50" style="background-color: #9A616D;"></section>
+
 <div class="product-card">
   <div class="row mt-5"></div>
   <div class="col" *ngFor="let item of items">
     <div class="card">
-      <img [src]="item?.imagefilename" class="card-img-top" alt="..." />
-    </div>
-    <div class>{{ item?.productName }}</div>
+     <img class="card-img-top" [src]="item?.imagefilename" class="card-img-top" alt="..." />
+
+     <div class>{{ item?.productName }}</div>
     <br />
     <div>{{ item?.description }}</div>
     <div>{{ item?.imageFileName }}</div>
-    <div>{{ item?.price | currency: "R" }}</div>
-    <br />
-    <input type="number" class="quantity" [(ngModel)]="item.quantity" />
+    <div >{{ item?.price | currency: "R" }}</div>
+
+   <div>Quantiny<input type="number" class="quantity" [(ngModel)]="item.quantity" /></div>
 
     <div>
       <button type="button" aria-label="Remove Item" (click)="onDelete(item)">
         Remove
       </button>
     </div>
-    <div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div>
+    <strong></strong><div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div>
+  </div>
+
   </div>
 
   <div class="cart-total">
     <p class="text-centre">
-      <strong class="d-block">Total:</strong>
-      {{ total | currency: "R" }}
-    </p>
+      <strong class="d-block" >Total Amount:</strong>
+      {{ total  | currency: "R" }}
+    </p><br>
   </div>
-  <a routerLink="/login" class="btn btn-success">Checked</a>
+
+    </div>
+    <div  >
+
+  <div class="row">
+    <div class="col-5 offset-6 text-centre">
+
+        <a routerLink="/login" class="btn btn-outline-primary py-8 btn-block"><strong>Checkout</strong></a>
+    </div>
+</div>
+
 </div>

@@ -1,10 +1,11 @@
+<section class="vh-50,vb-50" style="background-color: #9A616D;"></section>
 <div class="conta">
   <div class="row mt-5">
     <div class="col" *ngFor="let product of products,let i =index">
       <div class="card">
         <img [src]="product?.imagefilename" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{ product?.productName }}</h5>
+          <h4 class="card-title">{{ product?.productName }}</h4>
           <h5 class="card-title">{{ product?.description}}</h5>
           <h5 class="card-title">{{ product?.price | currency:"R" }}</h5>
           <h5 class="card-title">{{ product?.imageFileName }}</h5>

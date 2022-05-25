@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Model
 {
-    public class Login
+    public class Customer
     {
          [Key]
         public int customerId { get; set; }

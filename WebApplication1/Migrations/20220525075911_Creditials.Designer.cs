@@ -11,8 +11,8 @@ using WebApplication1.Data;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220519053457_CreateInitial")]
-    partial class CreateInitial
+    [Migration("20220525075911_Creditials")]
+    partial class Creditials
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace WebApplication1.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("WebApplication1.Model.Login", b =>
+            modelBuilder.Entity("WebApplication1.Model.Customer", b =>
                 {
                     b.Property<int>("customerId")
                         .ValueGeneratedOnAdd()
@@ -57,7 +57,7 @@ namespace WebApplication1.Migrations
 
                     b.HasKey("customerId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Customers");
                 });
 
             modelBuilder.Entity("WebApplication1.Model.Order", b =>

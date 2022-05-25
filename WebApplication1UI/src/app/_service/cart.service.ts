@@ -5,7 +5,14 @@ import { Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+
+
   getTotalPrice(): number {
+    let totalAmount = 0;
+    this.cartItems.map((a:any)=>{
+      totalAmount += a.total;
+    })
+    return totalAmount;
     throw new Error('Method not implemented.');
   }
   getProducts() {

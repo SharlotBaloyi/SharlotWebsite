@@ -19,7 +19,7 @@ export class UserService {
     }
 
     login(user) {
-      return this.http.post(`${environment.apiUrl}/api/Customer`, user);
+      return this.http.post(`${environment.apiUrl}/api/Login`, user);
     }
 
     deletelogin(id) {

@@ -36,7 +36,7 @@ namespace WebApplication1.Controllers
         {
             content.Orders.Add(orders);
             await content.SaveChangesAsync();
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
 
         [HttpPut]
@@ -69,7 +69,7 @@ namespace WebApplication1.Controllers
 
             content.Orders.Remove(dbOrder);
             await content.SaveChangesAsync();
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
     }
 }

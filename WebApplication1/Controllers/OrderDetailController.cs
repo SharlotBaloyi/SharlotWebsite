@@ -61,7 +61,7 @@ namespace WebApplication1.Controllers
 
             content.OrderDetails.Remove(dbOrderDetail);
             await content.SaveChangesAsync();
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
     }
 }

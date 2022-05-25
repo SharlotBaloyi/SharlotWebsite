@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
         [HttpGet("id")]
         public async Task<ActionResult<Product>> Get(int id)
         {
-            var here = await content.Users.FindAsync(id);
+            var here = await content.Customers.FindAsync(id);
 
             if (here == null)
                 return BadRequest("Here not found");

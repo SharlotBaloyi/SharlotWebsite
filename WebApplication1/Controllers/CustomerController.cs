@@ -17,14 +17,14 @@ namespace WebApplication1.Controllers
               content = context;
         }
         [HttpGet]
-        public async Task<ActionResult<List<Login>>> Get()
+        public async Task<ActionResult<List<Customer>>> Get()
         {
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
         [HttpGet("id")]
-        public async Task<ActionResult<Login>> Get(int id)
+        public async Task<ActionResult<Customer>> Get(int id)
         {
-            var here = await content.Users.FindAsync(id);
+            var here = await content.Customers.FindAsync(id);
 
             if (here == null)
                 return BadRequest("Here not found");
@@ -32,17 +32,17 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<Login>>> AddHere(Login users)
+        public async Task<ActionResult<List<Customer>>> AddHere(Customer users)
         {
-            content.Users.Add(users);
+            content.Customers.Add(users);
             await content.SaveChangesAsync();
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
 
         [HttpPut]
-        public async Task<ActionResult<List<Login>>> UpdateHere(Login request)
+        public async Task<ActionResult<List<Customer>>> UpdateHere(Customer request)
         {
-            var dbCustomer = await content.Users.FindAsync(request.customerId);
+            var dbCustomer = await content.Customers.FindAsync(request.customerId);
 
             if (dbCustomer == null)
                 return BadRequest("Here not found");
@@ -57,19 +57,19 @@ namespace WebApplication1.Controllers
             
 
             await content.SaveChangesAsync();
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
         [HttpDelete]
-        public async Task<ActionResult<List<Login>>> Delete(int id)
+        public async Task<ActionResult<List<Customer>>> Delete(int id)
         {
-            var dbCustomer = await content.Users.FindAsync(id);
+            var dbCustomer = await content.Customers.FindAsync(id);
 
             if (dbCustomer == null)
                 return BadRequest("customer not found");
 
-            content.Users.Remove(dbCustomer);
+            content.Customers.Remove(dbCustomer);
             await content.SaveChangesAsync();
-            return Ok(await content.Users.ToListAsync());
+            return Ok(await content.Customers.ToListAsync());
         }
     }
 }

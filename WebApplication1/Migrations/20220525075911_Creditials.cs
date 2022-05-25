@@ -4,10 +4,28 @@
 
 namespace WebApplication1.Migrations
 {
-    public partial class CreateInitial : Migration
+    public partial class Creditials : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    customerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    customerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    emailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    cellphoneNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    userName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.customerId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "OrderDetails",
                 columns: table => new
@@ -54,28 +72,13 @@ namespace WebApplication1.Migrations
                 {
                     table.PrimaryKey("PK_Products", x => x.productId);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    customerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    customerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    emailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    cellphoneNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    userName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    password = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.customerId);
-                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Customers");
+
             migrationBuilder.DropTable(
                 name: "OrderDetails");
 
@@ -84,9 +87,6 @@ namespace WebApplication1.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
-
-            migrationBuilder.DropTable(
-                name: "Users");
         }
     }
 }
