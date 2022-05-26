@@ -57,7 +57,7 @@ export class ProductService {
     let totalAmount = 0;
 
     this.cartItems.map(item => {
-      this.totalAmount += item.price;
+      this.totalAmount += item.price ;
     });
 
     return totalAmount

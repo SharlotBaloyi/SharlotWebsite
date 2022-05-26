@@ -1,42 +1,27 @@
-<ng-container *ngIf="(state | async) as s">
-	<!-- <pre>
-    {{ s | json }}
-  </pre> -->
-	<h3>
-		Checkout
-		<button style="float: right;" mat-icon-button [mat-dialog-close]><mat-icon>cancel</mat-icon></button>
-  </h3>
-
-	<div *ngIf="s.cart.length > 0; else elseBlock">
-  <p>
-    Review your items and checkout
-  </p>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Total: {{ s.tot.subTot | currency:'USD':'symbol':'1.2-2' }}</mat-card-title>
-      <mat-card-subtitle>
-      tax: {{ s.tot.tax | currency:'USD':'symbol':'1.2-2' }}
-      <br />
-          at checkout: {{ s.total.grandTot | currency:'USD':'symbol':'1.2-2' }}
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-actions style="text-align: right;">
-        <button type="button" mat-button color="accent" (click)="completeOrder()">
-          Complete my order <mat-icon>check</mat-icon>
-        </button>
-      </mat-card-actions>
-  </mat-card>
-  <div *ngFor="let item of s.cart">
-    <p>
-      {{ item.name }}<br />
-      <strong>{{ item.price }}</strong>
-    </p>
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-8">
+          <app-stepper [linearModeSelected]="true" #appStepper>
+              <cdk-step [label]="'Address'" [completed]="(checkoutForm.get('addressForm')).valid">
+                  <app-checkout-address [checkoutForm]="checkoutForm"></app-checkout-address>
+              </cdk-step>
+              <cdk-step [label]="'Delivery'" [completed]="(checkoutForm.get('deliveryForm')).valid">
+                  <app-checkout-delivery [checkoutForm]="checkoutForm"></app-checkout-delivery>
+              </cdk-step>
+              <cdk-step [label]="'Review'">
+                  <app-checkout-review [appStepper]="appStepper"></app-checkout-review>
+              </cdk-step>
+              <cdk-step [label]="'Payment'">
+                  <app-checkout-payment [checkoutForm]="checkoutForm"></app-checkout-payment>
+              </cdk-step>
+          </app-stepper>
+      </div>
+      <div class="col-4">
+         <app-order-totals
+         *ngIf="(basketTotals$ | async)"
+         [shippingPrice]="(basketTotals$ | async).shipping"
+         [subtotal]="(basketTotals$ | async).subtotal"
+         [total]="(basketTotals$ |async).total"></app-order-totals>
+      </div>
   </div>
 </div>
-  <ng-template #elseBlock>
-    <h4>Thank you for your fake purchase!</h4>
-     <button type="button" mat-button color="primary" [mat-dialog-close]>
-         Close <mat-icon>cancel</mat-icon>
-        </button>
-  </ng-template>
-</ng-container>

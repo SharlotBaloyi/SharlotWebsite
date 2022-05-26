@@ -49,12 +49,17 @@ export class CartComponent implements OnInit {
 
   getTotal(data: any) {
  let totalA=0;
+ let sub
     for(const item of data)
      totalA  += item.price * item.quantity;
      this.total = totalA;
   }
 
   updateSubtotal(value: any) {
+    console.log(value);
+  }
+
+  updateTotal(value: any) {
     console.log(value);
   }
 }

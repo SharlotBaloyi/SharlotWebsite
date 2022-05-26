@@ -11,7 +11,7 @@ import { ProductService } from '../_service/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-products :any[]=[]
+@ Input()products :any[]=[]
 private singleProduct;
 public isAdded;
 
@@ -31,7 +31,15 @@ public isAdded;
         Object.assign(a,{quantity:1,total:a.price});
 
         this.products= products.map(obj => ({ ...obj, quantity: 0 }));
+        this.productservice.getProducts().subscribe(data=>{
+          if (data && data.length > 0){
 
+          }else{
+            this.products.map((item, index)=>{
+              this.isAdded[index] = false;
+            });
+          }
+        });
     });
   })
 }
@@ -45,9 +53,28 @@ public isAdded;
   addToCart(product: any) {
     this.cartService.addToCart(product);
     //  window.alert('Your product has been added to the cart!');
+    // if (event.target.classList.contains('btn-success')) {
+    //   alert('This product is already added into cart.');
+    //   return false;
+    // }
 
+    // Change button color to green
+    this.products.map((item, index) => {
+      if (item.id === product) {
+        this.isAdded[index] = true;
+      }
+    })
+
+    this.singleProduct = this.products.filter(product => {
+      return product.id === product;
+    });
+
+    // this.cartItems.push(this.singleProduct[0]);
+
+    this.productservice.addProductToCart(this.singleProduct[0]);
   }
-}
+  }
+
 
 
 
