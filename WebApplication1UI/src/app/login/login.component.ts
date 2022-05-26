@@ -65,12 +65,11 @@ export class LoginComponent implements OnInit {
 
         this.loading = true;
         this.userService.login(this.loginForm.value)
-            .subscribe((token: any) => {
+            .subscribe((token) => {
+              console.log(token);
               this.router.navigate(['/login'], { queryParams: { loggin: true }});
               this.loading = false;
-
             });
-
     }
 }
 

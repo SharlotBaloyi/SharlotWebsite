@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { FilterPipe } from './Shared/filter.pipe';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { CartComponent } from './cart/cart.component';
     ProductListComponent,
     ProductDetailsComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    FilterPipe,
+    HeaderComponent
     ],
   imports: [
     BrowserModule,

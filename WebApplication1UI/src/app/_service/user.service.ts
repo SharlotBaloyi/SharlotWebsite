@@ -20,7 +20,7 @@ export class UserService {
     }
 
     login(user): Observable<any> {
-      return this.http.post(`${environment.apiUrl}/api/Login`, user);
+      return this.http.post(`${environment.apiUrl}/api/Login`, user, { responseType: 'text'});
     }
 
     deletelogin(id) {
