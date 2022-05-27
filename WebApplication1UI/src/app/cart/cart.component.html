@@ -12,14 +12,14 @@
     <div>{{ item?.imageFileName }}</div>
     <div >{{ item?.price | currency: "R" }}</div>
 
-   <div>Quantiny<input type="number" class="quantity" [(ngModel)]="item.quantity" /></div>
+  <strong> <div>Quantiny<input type="number" class="quantity" [(ngModel)]="item.quantity" /></div></strong>
 
     <div>
       <button type="button" aria-label="Remove Item" (click)="onDelete(item)">
         Remove
       </button>
     </div>
-    <strong></strong><div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div>
+    <strong><div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div></strong>
   </div>
 
   </div>

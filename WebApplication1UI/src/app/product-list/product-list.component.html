@@ -6,7 +6,7 @@
         <img [src]="product?.imagefilename" class="card-img-top">
           <h3 class="card-title">{{ product?.productName }}</h3>
           <h5 class="card-title ">{{ product?.description}}</h5>
-          <h5 class="card-title">{{ product?.price | currency:"R" }}</h5>
+          <strong><h1 class="card-title">{{ product?.price | currency:"R" }}</h1></strong>
           <h5 class="card-text">{{ product?.imageFileName }}</h5>
           <a href="/cart" class="btn btn-primary" (click)="addToCart(product)">Add To Cart</a>
 
