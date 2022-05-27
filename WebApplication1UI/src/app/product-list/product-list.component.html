@@ -1,7 +1,7 @@
 <section class="vh-50,vb-50" style="background-color: #9A616D;"></section>
 <div class="conta">
   <div class="row mt-5">
-    <div class="col" *ngFor="let product of products,let i =index  ">
+    <div class="col" *ngFor="let product of products | filter:searchKey:'productName' ">
       <div class="card">
         <img [src]="product?.imagefilename" class="card-img-top" alt="...">
         <div class="card-body">

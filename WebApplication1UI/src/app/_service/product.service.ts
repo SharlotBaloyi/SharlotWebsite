@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -12,6 +12,7 @@ export class ProductService {
   public cartItems = [];
   public products = new Subject();
   public totalAmount = new Subject<number>();
+  
 
   constructor(private http: HttpClient) { }
 

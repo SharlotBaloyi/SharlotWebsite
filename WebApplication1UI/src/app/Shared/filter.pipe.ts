@@ -1,3 +1,4 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -5,8 +6,17 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
-  }
+  transform(value :any[] , filterString:string,productName:string):any[] {
 
+    const result:any=[];
+    if(!value || filterString===''|| productName ===''){
+        return value;
+      }
+    value.forEach((a:any)=>{
+      if(a[productName].trim().toLowerCase().includes(filterString.toLowerCase())){
+        result.push(a);
+      }
+    });
+    return result;
+  }
 }

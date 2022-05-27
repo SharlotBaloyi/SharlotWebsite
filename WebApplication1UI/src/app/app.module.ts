@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { FilterPipe } from './Shared/filter.pipe';
-import { HeaderComponent } from './header/header.component';
+
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     CartComponent,
     FilterPipe,
-    HeaderComponent
+    NavbarComponent,
+
     ],
   imports: [
     BrowserModule,

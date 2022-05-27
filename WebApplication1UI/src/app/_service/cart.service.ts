@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,16 +13,19 @@ export class CartService {
       totalAmount += a.total;
     })
     return totalAmount;
-    throw new Error('Method not implemented.');
+
   }
   getProducts() {
-    throw new Error('Method not implemented.');
+
+    return this.products.asObservable();
   }
 
   private localCart:string='localCart';
   public cartItems = [];
   public products = new Subject();
   public totalAmount = new Subject<number>();
+  public search = new BehaviorSubject<string>("");
+  public product = new BehaviorSubject<any>([]);
 
   addToCart(product: any) {
     product.quantity = 1;

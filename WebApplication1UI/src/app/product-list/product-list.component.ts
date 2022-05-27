@@ -11,9 +11,10 @@ import { ProductService } from '../_service/product.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-@ Input()products :any[]=[]
+public products:any;
 private singleProduct;
 public isAdded;
+searchKey:string ="";
 
   constructor(
 
@@ -23,25 +24,36 @@ public isAdded;
   ) { }
 
   ngOnInit(): void {
-    this.productservice.getProducts().subscribe((products: any )=>{
-      console.log(products);
-      this.products=products;
+  //   this.productservice.getProducts().subscribe((products: any )=>{
+  //     console.log(products);
+  //     this.products=products;
 
-      this.products.forEach((a:any)=>{
-        Object.assign(a,{quantity:1,total:a.price});
+  //     this.products.forEach((a:any)=>{
+  //       Object.assign(a,{quantity:1,total:a.price});
 
-        this.products= products.map(obj => ({ ...obj, quantity: 0 }));
-        this.productservice.getProducts().subscribe(data=>{
-          if (data && data.length > 0){
+  //       this.products= products.map(obj => ({ ...obj, quantity: 0 }));
+  //       this.productservice.getProducts().subscribe(data=>{
+  //         if (data && data.length > 0){
 
-          }else{
-            this.products.map((item, index)=>{
-              this.isAdded[index] = false;
-            });
-          }
-        });
-    });
+  //         }else{
+  //           this.products.map((item, index)=>{
+  //             this.isAdded[index] = false;
+  //           });
+  //         }
+  //       });
+  //   });
+  // })
+
+  this.productservice.getProducts().subscribe(res=>{
+    this.products=res;
+
+    this.products.forEach((a:any)=>{
+      Object.assign(a,{quantity:1,total:a.price});
+  });
+  this.cartService.search.subscribe((val :any)=>{
+    this.searchKey=val;
   })
+});
 }
 
     // this.isAdded = new Array(this.products.length);
