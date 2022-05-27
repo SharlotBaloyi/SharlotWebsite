@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
     // this.productservice.getProducts().subscribe((data: any) =>{
     //   this.cartItems=data;
     this.items = this.cartService.getCartItems();
-    if (this.items) this.getTotal(this.items);
+    if (this.items) this.getTotal();
   }
 
   emptryCart() {
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
   onDelete(i: number) {
     this.cartService.removeFromCart(i);
     this.items = this.cartService.getCartItems();
-    this.getTotal(this.items);
+    this.getTotal();
   }
 
   validateInput(event: any, i: number) {
@@ -47,12 +47,13 @@ export class CartComponent implements OnInit {
   //   this.getTotal(this.items);
   // }
 
-  getTotal(data: any) {
- let totalA=0;
- let sub
-    for(const item of data)
-     totalA  += item.price * item.quantity;
-     this.total = totalA;
+  getTotal() {
+    let totalA = 0;
+    let sub;
+    for (const item of this.items) totalA += item.price * item.quantity;
+    this.total = totalA;
+
+    return this.total;
   }
 
   updateSubtotal(value: any) {
