@@ -1,4 +1,4 @@
-<section class="vh-50,vb-50" style="background-color: #9A616D;"></section>
+<!-- <section class="vh-50,vb-50" style="background-color: #9A616D;"></section>
 
 <div class="product-card">
   <div class="row mt-5"></div>
@@ -42,3 +42,71 @@
 </div>
 
 </div>
+
+ -->
+
+
+ <ng-container *ngIf="items.length != 0">
+  <div class="container">
+    <div class="card-table">
+      <div class="product-card col-12 py-5 mb-1">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>Product no.</th>
+              <th>PRODUCT NAME</th>
+              <th>PRODUCT IMAGE</th>
+              <th>PRICE</th>
+              <th>QUANTITY</th>
+              <th>SUB TOTAL</th>
+              <th>REMOVE</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item?.productName }}</td>
+              <td><img style="width: 200px;height:200px;" [src]="item?.imagefilename" alt=""></td>
+              <th>{{item?.price | currency: "R" }}</th>
+
+              <strong> <div>Quantiny<input type="number" class="quantity" [(ngModel)]="item.quantity" /></div></strong>
+              <td><strong><div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div></strong></td>
+              <td><button (click)="onDelete(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+            </tr><br>
+            <tr>
+
+              <app-order-totals _ngcontent-ahe-c62="" _nghost-ahe-c61=""
+               class="ng-star-inserted"><div _ngcontent-ahe-c61=""
+                class="bg-info px-2 text-uppercase font-weight-bold"
+                 style="padding: 1.20em;"> Order Details
+              </div><div _ngcontent-ahe-c61="" class="p-4"><p _ngcontent-ahe-c61=""
+                class="font-italic mb-4">We dont have Shipping cost we deliver for Free</p>
+                <ul _ngcontent-ahe-c61="" class="list-unstyled mb-4">
+                  <li _ngcontent-ahe-c61="" class="d-flex justify-between py-3 border-bottom">
+                    <strong _ngcontent-ahe-c61="" class="text-muted">
+                      Total Amount:</strong><strong _ngcontent-ahe-c61="">
+
+                        {{ getTotal()  | currency: "R" }}</strong></li>
+
+                        <td><button routerLink="/products" class="btn btn-success">Add More  </button></td>
+
+                        <td><button routerLink="/login" class="btn btn-success">Checkout</button></td>
+
+                        <li _ngcontent-ahe-c61=""
+                         class="d-flex justify-between py-3 border-bottom">
+                         </li></ul></div></app-order-totals>
+
+
+
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
