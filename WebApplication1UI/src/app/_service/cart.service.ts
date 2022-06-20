@@ -17,11 +17,15 @@ export class CartService {
   }
   getProducts() {
 
-    return this.products.asObservable();
+    return this.product.asObservable();
+  }
+  setProduct(product:any){
+    this.cartItems.push(...product)
+    this.product.next(product)
   }
 
   private localCart:string='localCart';
-  public cartItems = [];
+  public cartItems:any = [];
   public products = new Subject();
   public totalAmount = new Subject<number>();
   public search = new BehaviorSubject<string>("");
@@ -31,7 +35,10 @@ export class CartService {
     product.quantity = 1;
     this.getCartItems();
     this.cartItems.push(product);
+    this.product.next(this.cartItems);
+    this.getTotalPrice();
     localStorage.setItem(this.localCart, JSON.stringify(this.cartItems));
+    console.log(this.cartItems)
   }
 
   getCartItems() {

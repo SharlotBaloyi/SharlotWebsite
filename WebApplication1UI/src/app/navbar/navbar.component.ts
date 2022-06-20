@@ -11,16 +11,14 @@ export class NavbarComponent implements OnInit {
   [x: string]: any;
 
   title = 'website';
-  public totalItem : number =0;
+  public totalItem : number = 0;
   public searchTerm : string='';
 
   constructor(private cartService: CartService){}
 
-  ngOnInit() {
-    this.cartService.getProducts()
-    .subscribe((res: string | any[])=>{
-      this.totalItem = res.length;
-    });
+  ngOnInit():void {
+    // console.log("Hey  am running", );
+    this.totalItem = this.cartService.getCartItems().length;
   }
   search(event:any){
     this.searchTerm =(event.target as HTMLInputElement).value;

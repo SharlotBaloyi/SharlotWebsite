@@ -24,9 +24,9 @@ searchKey:string ="";
   ) { }
 
   ngOnInit(): void {
-    
+
   //   this.productservice.getProducts().subscribe((products: any )=>{
-  //     console.log(products);
+      // console.log(products);
   //     this.products=products;
 
   //     this.products.forEach((a:any)=>{
@@ -65,7 +65,7 @@ searchKey:string ="";
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    //  window.alert('Your product has been added to the cart!');
+      // window.alert('Your product has been added to the cart!');
     // if (event.target.classList.contains('btn-success')) {
     //   alert('This product is already added into cart.');
     //   return false;
