@@ -47,6 +47,7 @@
 
 
  <ng-container *ngIf="items.length != 0">
+
   <div class="container">
     <div class="card-table">
       <div class="product-card col-12 py-5 mb-1">
@@ -74,6 +75,7 @@
               <strong> <div>Quantiny<input type="number" class="quantity" [(ngModel)]="item.quantity" /></div></strong>
               <td><strong><div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div></strong></td>
               <td><button (click)="onDelete(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+
             </tr><br>
             <tr>
 

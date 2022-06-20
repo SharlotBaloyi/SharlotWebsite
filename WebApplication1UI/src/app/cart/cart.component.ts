@@ -55,7 +55,9 @@ export class CartComponent implements OnInit {
 
     return this.total;
   }
-
+  emptycart(){
+    this.cartService.removeAllCart();
+ }
   updateSubtotal(value: any) {
     console.log(value);
   }
