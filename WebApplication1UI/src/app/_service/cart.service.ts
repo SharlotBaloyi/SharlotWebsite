@@ -5,9 +5,6 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  removeAllCart() {
-    throw new Error('Method not implemented.');
-  }
 
 
   getTotalPrice(): number {
@@ -63,7 +60,32 @@ export class CartService {
 
   removeFromCart(index) {
     this.cartItems.splice(index, 1);
+    this.products.next(this.cartItems);
     localStorage.setItem(this.localCart, JSON.stringify(this.cartItems));
+  }
+  removeAllCart(productId){
+    this.cartItems.map((item, index) => {
+      if (item.id === productId) {
+        this.cartItems.splice(index, 1);
+      }
+
+    })
+
+    // Update Observable value
+    this.products.next(this.cartItems);
+  }
+  
+
+  removeProductFromCart(productId) {
+    this.cartItems.map((item, index) => {
+      if (item.id === productId) {
+        this.cartItems.splice(index, 1);
+      }
+
+    })
+
+    // Update Observable value
+    this.products.next(this.cartItems);
   }
 
   emptryCart() {

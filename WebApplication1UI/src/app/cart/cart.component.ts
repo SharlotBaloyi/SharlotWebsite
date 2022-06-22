@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
     this.items = this.cartService.getCartItems();
     this.getTotal();
   }
-
+o
   validateInput(event: any, i: number) {
     const quantity = +event.target.value;
     if (quantity < 1) {
@@ -55,9 +55,9 @@ export class CartComponent implements OnInit {
 
     return this.total;
   }
-  emptycart(){
-    this.cartService.removeAllCart();
- }
+//   emptycart(id){
+//     this.cartService.removeAllCart(id)
+//  }
   updateSubtotal(value: any) {
     console.log(value);
   }

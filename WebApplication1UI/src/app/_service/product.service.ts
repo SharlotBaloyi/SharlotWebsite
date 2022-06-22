@@ -12,7 +12,7 @@ export class ProductService {
   public cartItems = [];
   public products = new Subject();
   public totalAmount = new Subject<number>();
-  
+
 
   constructor(private http: HttpClient) { }
 
@@ -41,7 +41,8 @@ export class ProductService {
       if (item.id === productId) {
         this.cartItems.splice(index, 1);
       }
-    });
+      
+    })
 
     // Update Observable value
     this.products.next(this.cartItems);
