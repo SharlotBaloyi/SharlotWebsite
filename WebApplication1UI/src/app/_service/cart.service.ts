@@ -5,6 +5,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
+  cartservice: any;
 
 
   getTotalPrice(): number {
@@ -74,7 +75,7 @@ export class CartService {
     // Update Observable value
     this.products.next(this.cartItems);
   }
-  
+
 
   removeProductFromCart(productId) {
     this.cartItems.map((item, index) => {
@@ -92,4 +93,8 @@ export class CartService {
     this.cartItems.length = 0;
     this.products.next(this.cartItems);
   }
+  bona(){
+    alert("Congratulations your order have been successfully made");
+    this.cartservice.removeAllCart();
+    }
 }

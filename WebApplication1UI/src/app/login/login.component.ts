@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
 
         // stop here if form is invalid
         if (this.loginForm.invalid) {
+
             return;
         }
 
@@ -67,7 +68,8 @@ export class LoginComponent implements OnInit {
         this.userService.login(this.loginForm.value)
             .subscribe((token) => {
               console.log(token);
-              this.router.navigate(['/login'], { queryParams: { loggin: true }});
+              alert("succesful login submit your order")
+              this.router.navigate(['/cart'], { queryParams: { loggin: true }});
               this.loading = false;
             });
     }

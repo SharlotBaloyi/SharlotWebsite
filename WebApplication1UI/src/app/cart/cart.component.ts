@@ -55,6 +55,10 @@ o
 
     return this.total;
   }
+  bona(){
+    alert("Congratulations your order have been successfully made");
+    this.cartService.removeAllCart(this.products);
+    }
 //   emptycart(id){
 //     this.cartService.removeAllCart(id)
 //  }
