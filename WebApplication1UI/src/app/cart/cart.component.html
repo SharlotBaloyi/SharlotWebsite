@@ -66,13 +66,15 @@
             </tr>
           </thead>
           <tbody>
+            <br>
             <tr *ngFor="let item of items; let i = index">
               <!-- <td>{{i+1}}</td> -->
               <td>{{item?.productName }}</td>
               <td><img style="width: 200px;height:200px;" [src]="item?.imagefilename" alt=""></td>
               <th>{{item?.price | currency: "R" }}</th>
-              <strong> <div>Quantiny<input type="number" class="quantity" [(ngModel)]="item.quantity" /></div></strong>
-              <td><strong><div class="total">Sub Total : {{ item?.price * item?.quantity | currency: "R" }}</div></strong></td>
+              <strong> <div>
+                <div><input type="number" class="quantity" [(ngModel)]="item.quantity" /></div></div></strong>
+              <td><strong><div class="total"> {{ item?.price * item?.quantity | currency: "R" }}</div></strong></td>
               <td><button (click)="onDelete(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
               <!-- <button (click)=" emptycart(productId)" class="btn btn-danger"></button> -->
             </tr><br>
@@ -95,7 +97,7 @@
                         <tr>
                           <td colspan="8"></td>
                           <td><button routerLink="/products" class="btn btn-primary">Add More  </button></td>
-                          <td><button click="emptycart()" class="btn btn-danger">emptycart</button></td>
+                          <td><button click="emptycart()" class="btn btn-danger">Empty Cart</button></td>
                           <td><button routerLink="/login" class="btn btn-success">Checkout</button></td>
                           <!-- <td><button routerLink="/navbar" (click)="bona()" class="btn btn-success">Checkout</button>
                           </td> -->

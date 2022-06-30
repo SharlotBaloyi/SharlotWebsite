@@ -6,6 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class CartService {
   cartservice: any;
+  router: any;
 
 
   getTotalPrice(): number {
@@ -61,7 +62,7 @@ export class CartService {
 
   removeFromCart(index) {
     this.cartItems.splice(index, 1);
-    this.products.next(this.cartItems);
+    this.product.next(this.cartItems);
     localStorage.setItem(this.localCart, JSON.stringify(this.cartItems));
   }
   removeAllCart(productId){
@@ -93,6 +94,11 @@ export class CartService {
     this.cartItems.length = 0;
     this.products.next(this.cartItems);
   }
+logout(){
+  localStorage.removeItem("token")
+  this.router.navigate(['/login'])
+}
+
   bona(){
     alert("Congratulations your order have been successfully made");
     this.cartservice.removeAllCart();

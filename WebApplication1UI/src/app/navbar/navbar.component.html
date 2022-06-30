@@ -23,8 +23,8 @@
             <a href="" class="logo"> Online Shopping</a>
 
             <form action="" class="search-box-container">
-                <input type="search" class="form-control" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" (keyup)="search($event)" placeholder="search here...">
-                <label for="search-box" class="fas fa-search"></label>
+                <input type="search" id="fa-search" class="form-control" [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" (keyup)="search($event)" placeholder="search here...">
+               <h6> <label for="search-box" class="fas fa-search"></label></h6>
             </form>
 
         </div>
@@ -40,7 +40,8 @@
                 <a routerLink="/products">Product</a>
                 <a routerLink="/login">Login</a>
                 <a routerLink="register">Register</a>
-              
+                <!-- <a routerLink="register">Logout</a> -->
+
 
             </nav>
             <div class="icons">

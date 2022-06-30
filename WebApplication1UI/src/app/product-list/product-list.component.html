@@ -2,9 +2,10 @@
 <div class="conta">
   <div class="row ">
     <div class="col-4" *ngFor="let product of products | filter:searchKey:'productName' ">
+
       <div class="card">
         <img [src]="product?.imagefilename" class="card-img-top">
-          <h3 class="card-title">{{ product?.productName }}</h3>
+         <strong> <h3  class="card-title">{{ product?.productName }}</h3></strong>
           <h5 class="card-title ">{{ product?.description}}</h5>
           <strong><h1 class="card-title">{{ product?.price | currency:"R" }}</h1></strong>
           <h5 class="card-text">{{ product?.imageFileName }}</h5>

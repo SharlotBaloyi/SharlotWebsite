@@ -12,8 +12,8 @@
 
 .product-cart ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: 20;
+  padding: 20;
 }
 
 .product-cart li {
@@ -51,7 +51,7 @@
   height: 24px;
   background-color: red;
   font-style: normal;
-  padding: 0;
+  padding: 20;
   border-radius: 50px;
   position: absolute;
   top: -5px;

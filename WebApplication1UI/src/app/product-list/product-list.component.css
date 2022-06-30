@@ -1,4 +1,23 @@
 .card{
   margin-top: 15px;
-  height: 700px;
+  height: 720px;
+  padding: 10px;
+  margin: 20px;
+}
+/* font-size: bold;
+} */
+h5{
+
+  max-width:90ch;
+  font-size: 15px ;
+  font-size: bold;
+
+}
+p{
+  font-size: bold;
+}
+.product{
+    margin: 0px 15px;
+    text-align: center;
+
 }
